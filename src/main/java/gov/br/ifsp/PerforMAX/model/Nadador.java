@@ -2,9 +2,7 @@ package gov.br.ifsp.PerforMAX.model;
 
 import gov.br.ifsp.PerforMAX.dto.NadadorDto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "nadador")
@@ -18,6 +16,9 @@ public class Nadador {
 
     @ManyToMany
     private List<Treino> treinos;
+
+    public Nadador() {
+    }
 
     public Nadador(NadadorDto nadadorDto) {
         this.cpf = nadadorDto.getCpf();

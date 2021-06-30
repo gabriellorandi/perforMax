@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller("/login")
 public class LoginController {
@@ -23,7 +24,7 @@ public class LoginController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> login(@ModelAttribute LoginDto loginDto) {
+    public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
 
         Usuario usuario = usuarioService.login(loginDto);
 
@@ -36,7 +37,7 @@ public class LoginController {
 
     @PostMapping("/signup")
     @Transactional
-    public ResponseEntity<UsuarioDto> cadastrar(@ModelAttribute UsuarioDto usuarioDto) {
+    public ResponseEntity<UsuarioDto> cadastrar(@RequestBody UsuarioDto usuarioDto) {
 
         Usuario usuario = usuarioService.cadastrar(usuarioDto);
 

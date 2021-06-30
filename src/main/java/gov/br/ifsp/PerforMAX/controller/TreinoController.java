@@ -107,7 +107,7 @@ public class TreinoController {
 
     @PostMapping("/fisico")
     @Transactional
-    public ResponseEntity<?> cadastrarTreinoFisico(@ModelAttribute TreinoDto treinoDto) {
+    public ResponseEntity<?> cadastrarTreinoFisico(@RequestBody TreinoDto treinoDto) {
 
 
         TreinoFisico treinoFisico = treinoService.cadastrarTreinoFisico(treinoDto);
@@ -118,7 +118,7 @@ public class TreinoController {
 
     @PostMapping("/tempo")
     @Transactional
-    public ResponseEntity<?> cadastrarTreinoTempo(@ModelAttribute TreinoDto treinoDto) {
+    public ResponseEntity<?> cadastrarTreinoTempo(@RequestBody TreinoDto treinoDto) {
 
 
         TreinoTempo treinoTempo = treinoService.cadastrarTreinoTempo(treinoDto);
@@ -129,7 +129,7 @@ public class TreinoController {
 
     @PatchMapping("/{id}")
     @Transactional
-    public ResponseEntity<?> alterarTreino(@PathVariable Long id, @ModelAttribute TreinoDto treinoDto) {
+    public ResponseEntity<?> alterarTreino(@PathVariable Long id, @RequestBody TreinoDto treinoDto) {
 
         Treino treino = treinoService.buscar(id);
 

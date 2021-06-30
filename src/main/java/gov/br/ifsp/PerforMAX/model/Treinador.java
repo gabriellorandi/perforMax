@@ -3,6 +3,8 @@ package gov.br.ifsp.PerforMAX.model;
 import gov.br.ifsp.PerforMAX.dto.TreinadorDto;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "treinador")
@@ -12,6 +14,9 @@ public class Treinador {
     private Long cpf;
     private String nome;
     private Integer idade;
+
+    public Treinador() {
+    }
 
     public Treinador(TreinadorDto treinadorDto) {
         this.cpf = treinadorDto.getCpf();

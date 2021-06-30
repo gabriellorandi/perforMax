@@ -25,7 +25,7 @@ public class NadadorController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> cadastrarNadador(@ModelAttribute NadadorDto nadadorDto) {
+    public ResponseEntity<?> cadastrarNadador(@RequestBody NadadorDto nadadorDto) {
 
         if(nadadorService.cpfExistente(nadadorDto.getCpf())) {
             return new ResponseEntity<>("CPF já cadastrado", HttpStatus.CONFLICT) ;
@@ -39,7 +39,7 @@ public class NadadorController {
 
     @PatchMapping("/{cpf}")
     @Transactional
-    public ResponseEntity<?> alterarNadador(@PathVariable Long cpf, @ModelAttribute NadadorDto nadadorDto) {
+    public ResponseEntity<?> alterarNadador(@PathVariable Long cpf, @RequestBody NadadorDto nadadorDto) {
 
         Nadador nadador = nadadorService.buscarCpf(cpf);
 

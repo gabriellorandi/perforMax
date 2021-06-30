@@ -25,7 +25,7 @@ public class TreinadorController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> cadastrarTreinador(@ModelAttribute TreinadorDto treinadorDto) {
+    public ResponseEntity<?> cadastrarTreinador(@RequestBody TreinadorDto treinadorDto) {
 
         if(treinadorService.cpfExistente(treinadorDto.getCpf())) {
             return new ResponseEntity<>("CPF já cadastrado", HttpStatus.CONFLICT) ;
@@ -39,7 +39,7 @@ public class TreinadorController {
 
     @PatchMapping("/{cpf}")
     @Transactional
-    public ResponseEntity<?> alterarTreinador(@PathVariable Long cpf, @ModelAttribute TreinadorDto treinadorDto) {
+    public ResponseEntity<?> alterarTreinador(@PathVariable Long cpf, @RequestBody TreinadorDto treinadorDto) {
 
         Treinador treinador = treinadorService.buscarCpf(cpf);
 

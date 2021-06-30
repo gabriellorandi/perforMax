@@ -10,6 +10,8 @@ public class NadadorDto {
     private Integer idade;
     private String especialidade;
 
+    public NadadorDto(){}
+
     public NadadorDto(Nadador nadador) {
         this.cpf = nadador.getCpf();
         this.nome = nadador.getNome();
