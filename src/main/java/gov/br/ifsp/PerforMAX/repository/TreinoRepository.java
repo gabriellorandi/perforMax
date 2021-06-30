@@ -12,6 +12,6 @@ import java.util.List;
 public interface TreinoRepository extends JpaRepository<Treino, Long> {
 
 
-    @Query(value = "SELECT t FROM Treinos t WHERE t.nome LIKE :nome AND t.data BETWEEN :dataInicial AND :dataFinal ")
+    @Query(value = "SELECT t FROM treino t join nadador n WHERE n in t.nadadores AND n.nome LIKE :nome AND t.data BETWEEN :dataInicial AND :dataFinal ")
     List<Treino> findAllByNadadorNomeAndData(String nome, ZonedDateTime dataInicial, ZonedDateTime dataFinal);
 }
